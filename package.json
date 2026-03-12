@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node node_modules/serve/build/main.js . -l 4173"
+    "start": "serve . -l ${PORT:-4173}"
+  },
+  "dependencies": {
+    "serve": "^14.2.6"
   },
   "devDependencies": {
     "pixelmatch": "^7.1.0",
     "playwright": "^1.58.2",
-    "pngjs": "^7.0.0",
-    "serve": "^14.2.6"
+    "pngjs": "^7.0.0"
   }
 }

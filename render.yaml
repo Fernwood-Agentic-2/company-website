@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: company-website
+    env: node
+    rootDir: company-website
+    buildCommand: npm install
+    startCommand: npm start
