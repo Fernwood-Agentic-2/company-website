@@ -125,8 +125,16 @@ p {
   position: fixed;
   inset: 0 0 auto;
   z-index: 1000;
-  border-bottom: 1px solid color-mix(in oklab, var(--line), transparent 25%);
-  background: #ffffff;
+  border-bottom: 1px solid color-mix(in oklab, var(--line), transparent 40%);
+  background: color-mix(in oklab, #ffffff, transparent 12%);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.site-header.scrolled {
+  background: color-mix(in oklab, #ffffff, transparent 6%);
+  border-bottom-color: color-mix(in oklab, var(--line), transparent 10%);
 }
 
 .nav-row {
@@ -238,11 +246,26 @@ main {
   padding-top: var(--header-height);
 }
 
+/* shared planning-grid texture applied to all white sections */
+.hero,
+.stats,
+.audience,
+.manifesto,
+.site-footer {
+  background-image:
+    linear-gradient(rgba(23, 58, 42, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 58, 42, 0.028) 1px, transparent 1px),
+    linear-gradient(rgba(23, 58, 42, 0.011) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 58, 42, 0.011) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-attachment: fixed;
+}
+
 .hero {
   position: relative;
   overflow: clip;
   padding-block: clamp(64px, 9vw, 118px) clamp(56px, 8vw, 98px);
-  background: #ffffff;
+  background-color: #ffffff;
 }
 
 .hero-grid {
@@ -253,11 +276,10 @@ main {
 }
 
 .hero-media {
-  border-radius: var(--radius-lg);
-  border: 1px solid #d8e0da;
+  border-radius: var(--radius-md);
+  border: 1px solid #d8e2da;
   padding: clamp(8px, 0.9vw, 12px);
-  background: #ffffff;
-  box-shadow: none;
+  background: #f7faf7;
 }
 
 .hero-media img {
@@ -265,12 +287,23 @@ main {
   clip-path: none;
 }
 
+.hero-copy .eyebrow {
+  display: inline-block;
+  margin-bottom: clamp(12px, 1.5vw, 18px);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.72;
+}
+
 .hero-copy h1 {
-  font-size: clamp(1.55rem, 3.9vw, 3.25rem);
+  font-size: clamp(1.75rem, 4.4vw, 4.2rem);
   margin-bottom: clamp(16px, 2.2vw, 24px);
   max-width: 15ch;
-  color: var(--surface-green);
-  line-height: 1.06;
+  color: var(--ink);
+  line-height: 1.04;
 }
 
 .hero-copy p {
@@ -285,27 +318,23 @@ main {
   justify-content: center;
   min-height: 50px;
   padding-inline: 24px;
-  border-radius: 999px;
+  border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #f8fbf8;
+  color: #f0f6f1;
   background: #173a2a;
-  box-shadow: none;
-  transition: opacity 160ms ease;
+  transition: background 140ms ease;
 }
 
 .cta:hover,
 .cta:focus-visible {
-  opacity: 0.9;
-  box-shadow: none;
+  background: #1e4a33;
 }
 
 .stats {
-  background: #fff;
-  border-top: 1px solid #e2e7e3;
-  border-bottom: 1px solid #e2e7e3;
+  background-color: #fff;
 }
 
 .stats h2 {
@@ -318,27 +347,30 @@ main {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
-  border-top: 1px solid #dde5df;
-  border-bottom: 1px solid #dde5df;
 }
 
 .stats-grid article {
   padding: clamp(26px, 2.8vw, 36px) clamp(16px, 1.8vw, 24px);
-}
-
-.stats-grid article + article {
-  border-left: 1px solid #dde5df;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .stats-grid h3 {
   font-size: clamp(2rem, 3.7vw, 3.35rem);
   line-height: 0.95;
   margin-bottom: 11px;
+  color: var(--surface-green);
+  padding-bottom: 14px;
+  border-bottom: 3px solid #a8c4b0;
+  display: inline-block;
 }
 
 .stats-grid p {
   color: #5b6b61;
   font-size: clamp(0.94rem, 1.25vw, 1.06rem);
+  max-width: 18ch;
 }
 
 .feature {
@@ -423,8 +455,18 @@ main {
   color: #d5e1d7;
 }
 
+.audience,
+.manifesto,
+.site-footer {
+  background-image:
+    linear-gradient(rgba(23, 58, 42, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 58, 42, 0.018) 1px, transparent 1px),
+    linear-gradient(rgba(23, 58, 42, 0.007) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 58, 42, 0.007) 1px, transparent 1px);
+}
+
 .audience {
-  background: #ffffff;
+  background-color: #ffffff;
 }
 
 .audience h2 {
@@ -504,8 +546,7 @@ main {
 
 .manifesto {
   position: relative;
-  background: #fff;
-  border-top: 1px solid #d9e0db;
+  background-color: #fff;
 }
 
 .manifesto h3 {
@@ -535,7 +576,7 @@ main {
 .site-footer {
   padding: 24px 0 32px;
   border-top: 1px solid #d9e0db;
-  background: #fff;
+  background-color: #fff;
 }
 
 .site-footer small {
