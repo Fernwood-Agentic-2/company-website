@@ -518,6 +518,12 @@ main {
   color: #607267;
 }
 
+.site-footer small a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 1024px) {
   :root {
     --page-max: 1040px;
