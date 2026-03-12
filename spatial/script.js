@@ -57,24 +57,16 @@ if (accordion) {
 
   function closeItem(item) {
     const trigger = item.querySelector('.accordion-trigger');
-    const panel = item.querySelector('.accordion-panel');
-
-    if (!trigger || !panel) return;
-
+    if (!trigger) return;
     item.classList.remove('is-open');
     trigger.setAttribute('aria-expanded', 'false');
-    panel.hidden = true;
   }
 
   function openItem(item) {
     const trigger = item.querySelector('.accordion-trigger');
-    const panel = item.querySelector('.accordion-panel');
-
-    if (!trigger || !panel) return;
-
+    if (!trigger) return;
     item.classList.add('is-open');
     trigger.setAttribute('aria-expanded', 'true');
-    panel.hidden = false;
   }
 
   items.forEach((item) => {
@@ -83,8 +75,10 @@ if (accordion) {
 
     if (!trigger || !panel) return;
 
+    // Remove HTML hidden attr — animation is CSS-only now
+    panel.removeAttribute('hidden');
+
     const startsOpen = item.classList.contains('is-open');
-    panel.hidden = !startsOpen;
     trigger.setAttribute('aria-expanded', String(startsOpen));
 
     trigger.addEventListener('click', () => {

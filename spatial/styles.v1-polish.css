@@ -21,7 +21,7 @@
   --accent-strong: #14281d;
   --accent-soft: #d9e4d9;
 
-  --section-space: clamp(72px, 8vw, 112px);
+  --section-space: clamp(52px, 6vw, 80px);
   --header-height: clamp(74px, 7vw, 92px);
 
   --h1-size: clamp(2rem, 5.5vw, 4.6rem);
@@ -275,7 +275,7 @@ main {
 .hero {
   position: relative;
   overflow: clip;
-  padding-block: clamp(64px, 9vw, 118px) clamp(56px, 8vw, 98px);
+  padding-block: clamp(36px, 5vw, 64px) clamp(40px, 6vw, 72px);
   background-color: #ffffff;
 }
 
@@ -288,9 +288,6 @@ main {
 
 .hero-media {
   border-radius: var(--radius-md);
-  border: 1px solid #d8e2da;
-  padding: clamp(8px, 0.9vw, 12px);
-  background: #f7faf7;
 }
 
 .hero-media img {
@@ -516,35 +513,6 @@ main {
   outline-offset: 1px;
 }
 
-.plus {
-  width: 21px;
-  height: 21px;
-  position: relative;
-  flex: 0 0 auto;
-}
-
-.plus span {
-  position: absolute;
-  inset: 50% auto auto 50%;
-  background: currentColor;
-  transition: transform 220ms ease;
-}
-
-.plus span:first-child {
-  width: 17px;
-  height: 1.6px;
-  transform: translate(-50%, -50%);
-}
-
-.plus span:last-child {
-  width: 1.6px;
-  height: 17px;
-  transform: translate(-50%, -50%);
-}
-
-.accordion-item.is-open .plus span:last-child {
-  transform: translate(-50%, -50%) scaleY(0);
-}
 
 .accordion-panel {
   padding: 0 0 clamp(18px, 2.4vw, 24px);
@@ -584,6 +552,41 @@ main {
   font-style: italic;
 }
 
+
+/* ── Accordion smooth expand ── */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms ease;
+  overflow: hidden;
+  padding: 0;
+}
+
+.accordion-panel > * {
+  overflow: hidden;
+}
+
+.accordion-item.is-open .accordion-panel {
+  grid-template-rows: 1fr;
+}
+
+.accordion-item.is-open .accordion-panel > * {
+  padding-bottom: clamp(18px, 2.4vw, 24px);
+}
+
+/* ── Accordion chevron icon ── */
+.accordion-chevron {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  transition: transform 260ms ease;
+  color: #173a2a;
+}
+
+.accordion-item.is-open .accordion-chevron {
+  transform: rotate(180deg);
+}
+
 .site-footer {
   padding: 24px 0 32px;
   border-top: 1px solid #d9e0db;
@@ -615,7 +618,7 @@ main {
 @media (max-width: 768px) {
   :root {
     --gutter: clamp(16px, 5.7vw, 28px);
-    --section-space: clamp(54px, 13vw, 82px);
+    --section-space: clamp(40px, 10vw, 62px);
     --header-height: 76px;
   }
 
