@@ -1,0 +1,14 @@
+{
+  "name": "fa-spatial-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/serve/build/main.js . -l 4173"
+  },
+  "devDependencies": {
+    "pixelmatch": "^7.1.0",
+    "playwright": "^1.58.2",
+    "pngjs": "^7.0.0",
+    "serve": "^14.2.6"
+  }
+}
