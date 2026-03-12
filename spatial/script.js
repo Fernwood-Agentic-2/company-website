@@ -50,6 +50,48 @@ if (menuToggle && mobileMenu) {
   });
 }
 
+// ── Count-up stats ──
+const countEls = document.querySelectorAll('.count-up');
+
+if (countEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+
+      const el = entry.target;
+      const target = parseFloat(el.dataset.target);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const separator = el.dataset.separator || '';
+      const isDecimal = target % 1 !== 0;
+      const duration = 1600;
+      const start = performance.now();
+
+      function format(val) {
+        if (isDecimal) {
+          return prefix + val.toFixed(1) + suffix;
+        }
+        const rounded = Math.round(val);
+        return prefix + (separator ? rounded.toLocaleString('en-CA') : rounded) + suffix;
+      }
+
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = format(eased * target);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.4 });
+
+  countEls.forEach((el) => observer.observe(el));
+}
+
 const accordion = document.querySelector('[data-accordion]');
 
 if (accordion) {
