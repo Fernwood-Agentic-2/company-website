@@ -1,7 +1,6 @@
 services:
   - type: web
-    name: company-website
+    name: fernwood-agentic
     env: node
-    rootDir: company-website
     buildCommand: npm install
     startCommand: npm start
