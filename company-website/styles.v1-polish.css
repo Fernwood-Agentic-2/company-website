@@ -255,16 +255,22 @@ main {
 .hero-media {
   border-radius: var(--radius-lg);
   border: 1px solid #d8e0da;
-  padding: clamp(10px, 1.2vw, 16px);
+  padding: clamp(8px, 0.9vw, 12px);
   background: #ffffff;
   box-shadow: none;
 }
 
+.hero-media img {
+  object-position: center bottom;
+  clip-path: none;
+}
+
 .hero-copy h1 {
-  font-size: var(--h1-size);
+  font-size: clamp(1.55rem, 3.9vw, 3.25rem);
   margin-bottom: clamp(16px, 2.2vw, 24px);
-  max-width: 11ch;
+  max-width: 15ch;
   color: var(--surface-green);
+  line-height: 1.06;
 }
 
 .hero-copy p {
