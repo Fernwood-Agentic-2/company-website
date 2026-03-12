@@ -119,6 +119,13 @@ p {
 
 .reading h3 {
   text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .reading h3 {
+    white-space: normal;
+  }
 }
 
 .section {
