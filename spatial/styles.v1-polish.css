@@ -280,7 +280,10 @@ main {
 }
 
 .hero-media {
-  background: none;
+  background: transparent;
+  isolation: auto;
+  max-width: min(420px, 100%);
+  justify-self: center;
 }
 
 .hero-grid {
