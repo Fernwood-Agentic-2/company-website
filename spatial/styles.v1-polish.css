@@ -281,7 +281,6 @@ main {
 
 .hero-media {
   background: none;
-  border-radius: var(--radius-md);
 }
 
 .hero-grid {
