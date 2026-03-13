@@ -258,7 +258,6 @@ main {
 }
 
 /* shared planning-grid texture applied to all white sections */
-.hero,
 .stats,
 .audience,
 .manifesto,
@@ -270,6 +269,10 @@ main {
     linear-gradient(90deg, rgba(23, 58, 42, 0.011) 1px, transparent 1px);
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   background-attachment: fixed;
+}
+
+.hero {
+  background-image: none;
 }
 
 .hero {
