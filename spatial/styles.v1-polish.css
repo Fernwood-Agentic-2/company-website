@@ -258,6 +258,7 @@ main {
 }
 
 /* shared planning-grid texture applied to all white sections */
+.hero,
 .stats,
 .audience,
 .manifesto,
@@ -272,14 +273,15 @@ main {
 }
 
 .hero {
-  background-image: none;
-}
-
-.hero {
   position: relative;
   overflow: clip;
   padding-block: clamp(36px, 5vw, 64px) clamp(40px, 6vw, 72px);
   background-color: #ffffff;
+}
+
+.hero-media {
+  background: none;
+  border-radius: var(--radius-md);
 }
 
 .hero-grid {
@@ -287,10 +289,6 @@ main {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(28px, 4vw, 60px);
-}
-
-.hero-media {
-  border-radius: var(--radius-md);
 }
 
 .hero-media img {
