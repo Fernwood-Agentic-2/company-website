@@ -294,8 +294,10 @@ main {
 }
 
 .hero-media img {
+  width: 100%;
+  max-height: min(520px, 65vh);
+  object-fit: contain;
   object-position: center bottom;
-  clip-path: none;
 }
 
 .hero-copy .eyebrow {
