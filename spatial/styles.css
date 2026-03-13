@@ -248,7 +248,7 @@ main {
 .hero {
   position: relative;
   overflow: clip;
-  padding-block: clamp(60px, 10vw, 140px) clamp(56px, 8vw, 118px);
+  padding-block: clamp(24px, 4vw, 56px) clamp(56px, 8vw, 118px);
   background: #fff;
 }
 
@@ -261,7 +261,7 @@ main {
 
 .hero-media {
   border-radius: var(--radius-lg);
-  border: 1px solid #d1d9d2;
+
   padding: clamp(10px, 1.2vw, 16px);
   background: #f5f7f3;
   box-shadow: none;
@@ -565,9 +565,6 @@ main {
     display: grid;
   }
 
-  .hero {
-    padding-top: clamp(48px, 12vw, 72px);
-  }
 
   .site-footer {
     padding-bottom: 26px;
