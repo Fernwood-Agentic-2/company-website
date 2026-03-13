@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "serve . -l ${PORT:-4173}"
+    "start": "./node_modules/.bin/serve . -l ${PORT:-4173}"
   },
   "dependencies": {
     "serve": "^14.2.6"
